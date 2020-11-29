@@ -30,14 +30,53 @@ switch(color){
 }
 
 
-//construct object, with constructor function
-
+// construct object, with constructor function
+// constructor is so obverious 
 function Person(firstName, lastName, dob){
     this.firstName = firstName;
     this.lastName = lastName;
-    this.dob = dob;
+    this.dob = new Date(dob);
+    this.getBirthYear = function(){
+        return this.dob.getFullYear();
+    }
+    this.getFullName = function(){
+        return `${this.firstName} ${this.lastName}`;
+    }
 }
 
 //Instantiated object
 const personDavid = new Person('david','mei','11-11-2020');
 console.log(personDavid);
+console.log(personDavid.getBirthYear())
+console.log(personDavid.getFullName());
+//Add method to above object
+
+//Let talk about prototypes, that is where js object methods comes from
+Person.prototype.getPersonMethod = function(){
+    return 'getPersonMethod Called'
+}
+console.log(personDavid.getPersonMethod());
+
+
+//Here stating below, we look at the ES6 added of classses
+//prety much the syntax sugar....
+
+//we use class to write the same Person object as above pure functional way
+class Per{
+    constructor(firstName, lastName, dob){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = new Date(dob);
+    }
+    getBirthYear(){
+        return this.dob.getFullYear();
+    }
+    getFullName(){
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+const perDavid = new Per('david','mei','11-11-2020');
+console.log(perDavid);
+/////////////////////////
+///////DOM
+
