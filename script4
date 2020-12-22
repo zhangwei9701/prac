@@ -1,0 +1,39 @@
+const body = document.body
+body.append("Hello!!", "Cool")
+
+//append an element
+const div = document.createElement('div')
+div.innerText = "div inner text"
+div.textContent = "div text Context"
+body.append(div)
+const strong = document.createElement('strong')
+strong.innerText="My Strong"
+div.append(strong)
+
+//not much secured 
+// div.innerHTML = "<strong>HELLO</strong>"
+
+
+// const temp = document.querySelector("div")
+// temp.remove()
+
+const span = document.querySelector('#hi')
+
+console.log(span.getAttribute('data-test'))
+//get collection of data 
+console.log(span.dataset)
+
+//add new class
+span.classList.add("new-class3")
+
+//remove class
+span.classList.remove('class1')
+
+//toggle, remove or add
+span.classList.toggle("class-to", true)
+
+//css 
+span.style.color ='red'
+
+//backgroundColor, css property convert to camel case
+span.style.backgroundColor = 'yellow'
